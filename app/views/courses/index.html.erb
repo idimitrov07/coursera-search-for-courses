@@ -8,8 +8,8 @@
 <% end %>
 
 <br><br>
-<% if @courses.empty? %>
-  <h2>No classes found</h2>
+<% if @courses.nil? %>
+  <h2>No courses found for <em>'<%= @search_term %>'</em></h2>
   <button type="button" name="button">
     <%= link_to "<<< Back to Index", root_path %>
   </button>

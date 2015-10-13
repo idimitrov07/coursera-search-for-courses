@@ -1,28 +1,43 @@
 <h1>Searching for - <%= @search_term %> </h1>
 
-<table border="1">
-  <tr>
-    <th>
-      Image
-    </th>
-    <th>
-      Name
-    </th>
-    <th>
-      Description
-    </th>
-  </tr>
-  <% @courses.each do |course| %>
-  <tr class=<%= cycle('even', 'odd') %>>
-    <td>
-      <%= image_tag(course["smallIcon"]) %>
-    </td>
-    <td>
-      <%= course["name"] %>
-    </td>
-    <td>
-      <%= course["shortDescription"] %>
-    </td>
-  </tr>
+
+<%= form_tag("/", method: "get") do %>
+  <%= label_tag(:looking_for, "Search for: ") %>
+  <%= text_field_tag(:looking_for) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<br><br>
+<% if @courses.empty? %>
+  <h2>No classes found</h2>
+  <button type="button" name="button">
+    <%= link_to "<<< Back to Index", root_path %>
+  </button>
+<% else %>
+  <table border="1">
+    <tr>
+      <th>
+        Image
+      </th>
+      <th>
+        Name
+      </th>
+      <th>
+        Description
+      </th>
+    </tr>
+    <% @courses.each do |course| %>
+      <tr class=<%= cycle('even', 'odd') %>>
+        <td>
+          <%= image_tag(course["smallIcon"]) %>
+        </td>
+        <td>
+          <%= course["name"] %>
+        </td>
+        <td>
+          <%= course["shortDescription"] %>
+        </td>
+      </tr>
+    <% end %>
   <% end %>
 </table>

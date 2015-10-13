@@ -11,3 +11,17 @@ td {
 .even {
   background-color: #D6E1C3;
 }
+
+a {
+  text-decoration: none;
+  font-size: 2em;
+}
+
+button {
+  border-radius: 5px;
+}
+
+input[type="submit"] {
+  font-size: 2em;
+  margin-left: 10px;
+}

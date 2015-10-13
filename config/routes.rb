@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get '/hello', to: 'greeter#hello'
   get '/goodbye', to: 'greeter#goodbye'
 
+  root to: 'courses#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
